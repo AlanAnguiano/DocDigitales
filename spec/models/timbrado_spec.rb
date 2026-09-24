@@ -2,7 +2,7 @@ RSpec.describe Timbrado, type: :model do
   let(:factura) { Factura.create!(folio: "TEST-SPEC-01") }
 
   describe 'associations' do
-    it { is_expected.to belong_to(:factura)}
+    it { is_expected.to belong_to(:factura) }
   end
 
   describe 'validations' do

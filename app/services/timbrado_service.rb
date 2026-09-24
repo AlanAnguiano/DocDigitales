@@ -33,10 +33,10 @@ class TimbradoService
     if pac_response[:success]
       create_timbrado(pac_response[:uuid_fiscal])
       factura.update!(estatus: Factura::STATUS[:timbrada])
-      return success_response
+      success_response
     else
       failed_timbrado(error: pac_response[:error])
-      return failure_response(status_code: :unprocessable_entity, error: pac_response[:error])
+      failure_response(status_code: :unprocessable_entity, error: pac_response[:error])
     end
   rescue ActiveRecord::RecordNotUnique
     @timbrado = nil
@@ -121,7 +121,7 @@ class TimbradoService
   end
 
   def previously_created_response
-    if timbrado.status == Timbrado::STATUS[:timbrada] 
+    if timbrado.status == Timbrado::STATUS[:timbrada]
       success_response(status_code: :ok)
     else
       failure_response(status_code: :ok)

@@ -1,7 +1,7 @@
 class Factura < ApplicationRecord
   STATUS = {
     pendiente: "pendiente",
-    timbrada: "timbrada",
+    timbrada: "timbrada"
   }.freeze
 
   has_many :timbrados, dependent: :destroy

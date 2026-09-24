@@ -7,10 +7,10 @@ class CreateTimbrados < ActiveRecord::Migration[8.0]
       t.string :status, null: false
       t.string :uuid_fiscal
       t.string :error
-    
+
       t.timestamps
     end
-    
+
     add_index :timbrados, :external_id, unique: true
   end
 end

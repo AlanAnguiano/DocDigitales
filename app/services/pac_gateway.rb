@@ -11,7 +11,7 @@ class PacGateway
   end
 
   private
-  
+
   def timeout_response
     { success: false, error: "Timeout" }
   end
