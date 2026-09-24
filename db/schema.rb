@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_24_094237) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_24_095036) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,4 +20,19 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_24_094237) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "timbrados", force: :cascade do |t|
+    t.string "external_id", null: false
+    t.bigint "factura_id", null: false
+    t.decimal "amount", precision: 12, scale: 2, null: false
+    t.string "status", null: false
+    t.string "uuid_fiscal"
+    t.string "error"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["external_id"], name: "index_timbrados_on_external_id", unique: true
+    t.index ["factura_id"], name: "index_timbrados_on_factura_id"
+  end
+
+  add_foreign_key "timbrados", "facturas"
 end
