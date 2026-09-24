@@ -1,6 +1,6 @@
 class Factura < ApplicationRecord
   STATUS = {
-    pending: "pendiente",
+    pendiente: "pendiente",
     timbrada: "timbrada",
   }.freeze
 
